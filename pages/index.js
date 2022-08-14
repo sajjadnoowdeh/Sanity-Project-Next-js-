@@ -1,6 +1,8 @@
 import { Alert, CircularProgress, Grid } from "@mui/material";
+import Link from "next/link";
 import React, { useEffect } from "react";
 import Layout from "../components/Layout";
+import ProductItem from "../components/ProductItem";
 import client from "../utils/client";
 
 export default function Home() {
@@ -31,9 +33,9 @@ export default function Home() {
         <Alert variant={"danger"}>{error}</Alert>
       ) : (
         <Grid container>
-          {products?.map((item) => (
-            <Grid md={4} item key={item.slug}>
-              {item.name}
+          {products?.map((product) => (
+            <Grid md={4} item key={product._id}>
+              <ProductItem product={product} />
             </Grid>
           ))}
         </Grid>
