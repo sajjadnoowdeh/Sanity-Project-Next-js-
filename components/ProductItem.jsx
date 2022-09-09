@@ -5,6 +5,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Rating,
   Typography,
 } from "@mui/material";
 import NextLink from "next/link";
@@ -21,12 +22,10 @@ const ProductItem = ({ product }) => {
             image={UrlForThumbail(product.image)}
             title={product.name}
           ></CardMedia>
-        <CardContent>
-          <Typography>{product.name}</Typography>
-          <Typography>
-            {product.rating} ${product.numReviews} raviews
-          </Typography>
-        </CardContent>
+          <CardContent>
+            <Typography>{product.name}</Typography>
+            <Rating value={product.rating} readOnly />
+          </CardContent>
         </CardActionArea>
       </NextLink>
       <CardActions>
@@ -40,3 +39,5 @@ const ProductItem = ({ product }) => {
 };
 
 export default ProductItem;
+
+
